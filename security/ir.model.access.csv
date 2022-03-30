@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cars_jeniscucimobil,access.cars.jeniscucimobil,model_cars_jeniscucimobil,,1,1,1,1
+access_cars_jenis,access.cars.jenis,model_cars_jenis,,1,1,1,1
+access_cars_order,access.cars.order,model_cars_order,,1,1,1,1
+access_cars_detailorder,access.cars.detailorder,model_cars_detailorder,,1,1,1,1

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- cars.jenis tree view -->
+    <record id="cars_jenis_view_tree" model="ir.ui.view">
+        <field name="name">Jenis Cuci Mobil</field>
+        <field name="model">cars.jenis</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="kotoran"/>
+                <field name="air"/>
+                <field name="tersedia"/>
+                <field name="deskripsi"/>
+                </tree>
+        </field>
+    </record>
+
+    <!-- cars.jenis form view -->
+    <record id="cars_jenis_view_form" model="ir.ui.view">
+        <field name="name">Form Cuci Mobil</field>
+        <field name="model">cars.jenis</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <separator string='Jenis Cuci Mobil'/>
+                            <field name="name"/>
+                            <field name="air"/>
+                    </group>
+                    <group>
+                        <separator string='Kotoran'/>
+                            <field name="kotoran"/>
+                            <field name="tersedia"/>
+                    </group>
+                    <notebook>
+                        <page string="Deskripsi Pencucian">
+                            <field name="deskripsi"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- cars.jenis action window -->
+    <record id="cars_jenis_action" model="ir.actions.act_window">
+        <field name="name">Daftar Jenis Cuci Mobil</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cars.jenis</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="cars_jenis_menu_act" 
+        name="Pencucian Mobil" 
+        parent="cars_master_menu_categ" 
+        action="cars_jenis_action" 
+        sequence="10"/>
+
+</odoo>

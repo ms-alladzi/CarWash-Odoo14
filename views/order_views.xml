@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- cars.order tree view -->
+    <record id="cars_order_view_tree" model="ir.ui.view">
+        <field name="name">Jenis Order</field>
+        <field name="model">cars.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="jumlah_order"/>
+                <field name="tgl_order"/>
+                <field name="total_harga"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- cars.order form view -->
+    <record id="cars_order_view_form" model="ir.ui.view">
+        <field name="name">Form Order</field>
+        <field name="model">cars.order</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="tgl_order"/>
+                    </group>
+                    <group>
+                        <field name="jumlah_order"/>
+                    </group>
+                    <group>
+                        <field name="total_harga"/>
+                    </group>
+                    <notebook>
+                        <page string="Detail Order">
+                            <field name="detailcuci_ids">
+                                <tree editable='bottom'>
+                                    <field name="models_id"/>
+                                    <field name="harga"/>
+                                    <field name="jumlah"/>
+                                    <field name="jumlah_harga" sum="Jumlah Harga"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- cars.order action window -->
+    <record id="cars_order_action" model="ir.actions.act_window">
+        <field name="name">Data Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cars.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="cars_order_menu_act" 
+        name="Order" 
+        parent="cars_order_menu_categ" 
+        action="cars_order_action" 
+        sequence="10"/>
+
+</odoo>

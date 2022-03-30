@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- cars.jeniscucimobil tree view -->
+  <record id="cars_jeniscucimobil_view_tree" model="ir.ui.view">
+    <field name="name">Jenis Mobil</field>
+    <field name="model">cars.jeniscucimobil</field>
+    <field name="arch" type="xml">
+      <tree string="Produk">
+        <!-- Add your fields here -->
+            <field name="name"/>
+            <field name="ukuran"/>
+            <field name="tipe"/>
+            <field name="jenis_id"/>
+            <field name="harga"/>
+            <field name="active"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- cars.jeniscucimobil action window -->
+  <record id="cars_jeniscucimobil_action" model="ir.actions.act_window">
+    <field name="name">Jenis Mobil</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">cars.jeniscucimobil</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- cars.jeniscucimobil form view -->
+  <record id="cars_jeniscucimobil_view_form" model="ir.ui.view">
+    <field name="name">Form Jenis Mobil</field>
+    <field name="model">cars.jeniscucimobil</field>
+    <field name="arch" type="xml">
+      <form string="">
+        <sheet>
+          <group>
+            <!-- Add your fields here -->
+            <separator string='Jenis Cuci Mobil'/>
+              <field name="name"/>
+              <field name="ukuran"/>
+          </group>
+          <group>
+            <separator string='Jenis Mobil'/>
+              <field name="tipe"/>
+          </group>
+          <group>
+            <separator string='Harga'/>
+              <field name="harga"/>
+          </group>
+          <group>
+            <separator string='Pilihan Jenis'/>
+              <field name="jenis_id"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- cars.jeniscucimobil search view -->
+  <record id="cars_jeniscucimobil_view_search" model="ir.ui.view">
+    <field name="name">Jenis Mobil</field>
+    <field name="model">cars.jeniscucimobil</field>
+    <field name="arch" type="xml">
+      <search string="Pencarian">
+        <!-- Add your fields here -->
+          <field name="name"/>
+          <field name="tipe"/>
+          <filter name="mobil matic" string="Mobil Matic" domain="[('tipe', 'ilike', 'mobil matic')]"/>
+          <filter name="mobil matic" string="Mobil Manual" domain="[('tipe', 'ilike', 'mobil manual')]"/>
+      </search>
+    </field>
+  </record>
+
+  <!-- This Menu Item must have a parent and an action -->
+  <menuitem 
+    id="cars_bahancucian_menu_act" 
+    name="Jenis Mobil" 
+    parent="cars_master_menu_categ" 
+    action="cars_jeniscucimobil_action" 
+    sequence="20"/>
+
+</odoo>
